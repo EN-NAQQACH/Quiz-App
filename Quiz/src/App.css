@@ -103,3 +103,72 @@ i{
   background-color: blue;
   cursor: pointer;
 }
+
+.main{
+  position: relative;
+  width: calc(100% - 260px);
+  left: 260px;
+  background-color: rgb(146, 146, 146);
+  height: 100vh;
+}
+.main h1 {
+  background-color: rgb(146, 146, 146);
+  padding: 15px;
+}
+
+/************* Class Components ******************/
+
+.Content-Class{
+  position: relative;
+  left: 260px;
+  width: calc(100% - 260px);
+  height: 100%;  
+  padding: 15px;
+}
+.Content-Class h2{
+  padding: 15px;
+}
+
+form button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #CCC8AA;
+  cursor: pointer;
+  background-color: #CCC8AA;
+  color: #525252;
+  width: 50%;
+
+}
+form{
+  display: flex;
+  flex-direction: column;  
+  width: 20%;
+  margin: auto;
+  margin-top: 200px;
+}
+form input{
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 10px;
+}
+
+.class-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.class-table th, .class-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.class-table th {
+  background-color: #f2f2f2;
+}
+
+.class-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
