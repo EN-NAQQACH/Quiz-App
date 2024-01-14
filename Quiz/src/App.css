@@ -1,42 +1,105 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+.sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 260px;
+  background: blue;
+  padding: 5px;
+}
+img{
+  width: 30px;
+  background-color: blue;
+}
+.logo{
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: blue;
+}
+.logo h2{
+  color: white;
+  background-color: blue;
+}
+ul li {
+  background-color: blue;
+}
+ul li a:hover{
+  border: 1px solid rgb(184, 184, 184);
+  border-radius: 5px;
+}
+ul li span {
+  background-color: blue;
+}
+ul{
+  background-color: blue;
+  padding: 15px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+ul li a{
+  background-color: blue;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid transparent;
+  padding: 7px;
+}
+ul li a i{
+  background-color: blue;
+  font-weight: 700;
+  font-size: 20px;
+}
+/* Add this CSS to your existing styles */
+.sub-menu {
+  display: none; /* Hide the submenu by default */
+  transition: all 0.5s ease; /* Add a transition effect for the display property */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Show the submenu when isSubMenuOpen is true */
+.sub-menu.open {
+  display: block;
+  transition: all 0.5s ease;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.profile .profile-content img{
+    width: 40px;
+    background-color: blue;
+
+}.profile .profile-content{
+  background-color: blue;
+}
+.profile {
+  background-color: blue;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.info-profile p{
+background-color: blue;
+}
+.profile  li {
+  background-color: blue;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 50px;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+i{
+  background-color: blue;
+  cursor: pointer;
 }
