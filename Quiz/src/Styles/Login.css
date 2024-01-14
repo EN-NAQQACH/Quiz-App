@@ -1,0 +1,61 @@
+*{
+    background-color: #f8f8f8;
+    font-family: 'Poppins', sans-serif;
+}
+.Login {
+    border:1px solid transparent;
+    margin-top: 10%;
+    width: 30%;
+    margin: auto;
+    padding: 50px;
+    margin-top: 4%;
+    border-radius: 5px;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1)
+}
+.Login h2{
+    text-align: center;
+    margin-top: -10px;
+    color: #666666;
+    letter-spacing: 1.2px;
+}
+.Login form{
+    display: flex;
+    flex-direction: column;  
+}
+.Login form .Student{
+    width: 30%;
+}
+.Login form .Teacher{
+    width: 30%;
+}
+.Login form label{
+    margin-bottom: 2px;
+    width: 40%;
+}
+.Login form input{
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 10px;
+}
+.Login form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #CCC8AA;
+    cursor: pointer;
+    background-color: #CCC8AA;
+    color: #525252;
+}
+.Login form button:hover{
+    background-color:#b8b59f;
+    color: #525252;
+}
+.Login form p{
+    color: #7D7C7C;
+}
+.Login form p a{
+    color: #383838;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
