@@ -1,0 +1,35 @@
+.Quiz-Content{
+    position: relative;
+    left: 260px;
+    width: calc(100% - 260px);
+    min-height: 100vh;  
+    padding: 15px;
+    background-color: rgb(235, 235, 235);
+  }
+.formquiz{
+    margin: auto;
+    margin-top: 50px;
+    width: 50%;
+    display: block;
+  }
+  .formquiz input {
+    border-radius: 0;
+    border-color: rgb(153, 153, 153);
+    margin-top: 5px;
+  }
+.correct{
+    display: flex;
+}
+.correct input {
+    margin-left: -190px;
+    margin-top: 2px;
+}
+.btn-option{
+    margin-bottom: 20px;
+    margin-top: -15px;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
