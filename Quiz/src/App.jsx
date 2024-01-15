@@ -1,23 +1,45 @@
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Signup from './Components/Signup';
 import Login from './Components/LogIn';
-import Home from './Components/Home';
-import { Routes, Route } from 'react-router-dom';
+import Home from './Components/HomePage';
+import Navbar from './Components/Navbar';
+import Class from './Components/AddClass';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import ListofClasses from './Components/ListofClasses';
+import ListofStudentsinClass from './Components/ListofStudentsinClass';
 
 
 function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    // Define routes where Navbar should not be rendered
+    const routesWithoutNavbar = ['/Signup', '/Login'];
+
+    // Check if the current route is in the routesWithoutNavbar array
+    const shouldRenderNavbar = !routesWithoutNavbar.includes(location.pathname);
+
+    if (shouldRenderNavbar) {
+      // Perform any additional logic if needed
+    }
+  }, [location]);
 
   return (
     <>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/Login" element={<Login />} />
-        <Route path="/" element={<Home />}/>
+        <Route path="/class/Add" element={<Class />} />
+        <Route path="/classes" element={<ListofClasses />} />
+        <Route path="/classes/:classId/students" element={<ListofStudentsinClass />} />
       </Routes>
+      {location.pathname !== '/Signup' && location.pathname !== '/Login' && <Navbar />}
     </>
-  )
+  );
 }
 
 export default App

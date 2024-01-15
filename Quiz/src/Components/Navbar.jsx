@@ -19,12 +19,6 @@ const Navbar = () => {
     setSubMenuOpen3(!isSubMenuOpen3);
   };
 
-  // useEffect(() => {
-  //   if (!localStorage.getItem('token')) {
-  //     navigate('/Login')
-  //   }
-  // }, [])
-
   return (
     <div>
       <div>
@@ -41,13 +35,13 @@ const Navbar = () => {
               <Link to="#"><img src={student} alt="" /><span>Class</span><i className='bx bx-chevron-down' onClick={handleSubMenuToggle}></i></Link>
               <ul className={`sub-menu ${isSubMenuOpen ? 'open' : ''}`}>
                 <li>
-                  <Link to="/Class/Add">
+                  <Link to="/class/Add">
                     <img src={student} alt="" />
                     <span>Add Class</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/">
+                  <Link to="/classes">
                     <img src={student} alt="" />
                     <span>List of Classes</span>
                   </Link>

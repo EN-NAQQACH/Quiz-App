@@ -21,6 +21,8 @@
 .Login form{
     display: flex;
     flex-direction: column;  
+    width: 100%;
+    margin-top: 20px;
 }
 .Login form .Student{
     width: 30%;
@@ -30,13 +32,17 @@
 }
 .Login form label{
     margin-bottom: 2px;
-    width: 40%;
+    width: 50%;
+    font-size: 12px;    
 }
+
 .Login form input{
     margin-bottom: 20px;
     border-radius: 5px;
     border: 1px solid gray;
-    padding: 10px;
+}
+.Login form label input {
+    margin-right: 5px;
 }
 .Login form button {
     padding: 10px;
@@ -45,6 +51,7 @@
     cursor: pointer;
     background-color: #CCC8AA;
     color: #525252;
+    width: 100%;
 }
 .Login form button:hover{
     background-color:#b8b59f;
@@ -52,10 +59,16 @@
 }
 .Login form p{
     color: #7D7C7C;
+    margin-top: 10px;
+    font-size: 12px;
 }
 .Login form p a{
     color: #383838;
     font-weight: 600;
     letter-spacing: 1px;
-    font-size: 14px;
+    font-size: 12px;
+}
+.Login form button:hover{
+    background-color:#b8b59f;
+    color: #525252;
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import "../App.css"
 function ListofClasses() {
     const [classes , setClasses] = useState([]);
@@ -37,7 +38,7 @@ function ListofClasses() {
             classes.map((classInfo) => (
               <tr key={classInfo._id}>
                 <td>{classInfo._id}</td>
-                <td>{classInfo.class_name}</td>
+                <td ><Link to={`/classes/${classInfo._id}/students`}>{classInfo.class_name}</Link></td>
               </tr>
             ))
           ) : (

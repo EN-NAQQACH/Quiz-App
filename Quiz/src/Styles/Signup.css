@@ -21,6 +21,8 @@
 .Signup form{
     display: flex;
     flex-direction: column;  
+    width: 100%;
+    margin-top: 20px;
 }
 .Signup form .Student{
     width: 30%;
@@ -31,6 +33,10 @@
 }
 .Signup form label{
     margin-bottom: 2px;
+    font-size: 12px; 
+}
+.Signup form label input{
+    margin-right: 5px;
 }
 .Signup form input{
     margin-bottom: 20px;
@@ -45,6 +51,7 @@
     cursor: pointer;
     background-color: #CCC8AA;
     color: #525252;
+    width: 100%;
 }
 .Signup form button:hover{
     background-color:#b8b59f;
@@ -52,10 +59,12 @@
 }
 .Signup form p{
     color: #7D7C7C;
+    font-size: 12px;
+    margin-top: 10px;
 }
 .Signup form p a{
     color: #383838;
     font-weight: 600;
     letter-spacing: 1px;
-    font-size: 14px;
+    font-size: 12px;
 }
