@@ -1,0 +1,164 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  background-color: transparent;
+}
+/************* Navbar Components ******************/
+.sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 260px;
+  background: #777777;
+  padding: 5px;
+}
+img{
+  width: 25px;
+}
+.logo{
+  margin-bottom: 20px;
+  padding: 15px;
+
+}
+.logo h2{
+  color: white;
+
+}
+ul li a:hover{
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: #7c7c7c;
+}
+ul li span {
+  color: white;
+}
+ul{
+  padding: 15px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+ul li a{
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid transparent;
+  padding: 7px;
+}
+ul li a i{
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+}
+.sub-menu {
+  display: none; 
+  transition: all 0.5s ease; 
+}
+.sub-menu.open {
+  display: block;
+  transition: all 0.5s ease;
+}
+.profile .profile-content img{
+    width: 23px;
+}
+.profile {
+  display: flex;
+  gap: 63px;
+  align-items: center;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  background-color: #818181;
+  margin-bottom: 5px;
+}
+.profile  li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+i{
+  cursor: pointer;
+}
+
+/************* Class Components ******************/
+
+.Content-Class{
+  position: relative;
+  left: 260px;
+  width: calc(100% - 260px);
+  height: 100vh;  
+  padding: 15px;
+  background-color: rgb(209, 209, 209);
+}
+.Content-Class h2{
+  padding: 15px;
+}
+
+form button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #CCC8AA;
+  cursor: pointer;
+  background-color: #CCC8AA;
+  color: #525252;
+  width: 30%;
+
+}
+form{
+  display: flex;
+  flex-direction: column;  
+  width: 40%;
+  margin: auto;
+  margin-top: 200px;
+}
+form input{
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 10px;
+  width: 100%;
+}
+
+/************* ListofClasses Components ******************/
+
+.class-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.class-table th, .class-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  padding: 10px;
+}
+.class-table tbody tr td:first-child p{
+  color: #6b6b6b;
+}
+.class-table tbody tr td:first-child p:hover{
+  color: #1d1d1d;
+  cursor: pointer;
+}
+.class-table tbody tr td a{
+  color: rgb(73, 73, 73);
+}
+.class-table tbody tr td a:hover{
+  color: rgb(22, 22, 22);
+}
+
+.class-table th {
+  background-color: #bebebe;
+  border-radius: 2px;
+}
+
+.class-table tbody tr:nth-child(even) {
+  background-color: #d8d7d7;
+}
