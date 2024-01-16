@@ -57,7 +57,20 @@ const UpdateQuiz = () => {
           questions: newQuestions,
         };
       });
-    };  
+    };
+    // function to handle ddate time
+    const formatDateForInput = (dateString) => {
+        const date = new Date(dateString);
+        const localDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000); // Convert to local time
+        const year = localDate.getFullYear();
+        const month = `0${localDate.getMonth() + 1}`.slice(-2);
+        const day = `0${localDate.getDate()}`.slice(-2);
+        const hours = `0${localDate.getHours()}`.slice(-2);
+        const minutes = `0${localDate.getMinutes()}`.slice(-2);
+    
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+      };
+  
   return (
     <div className="content">
       <h2>Edit Quiz</h2>
@@ -76,7 +89,7 @@ const UpdateQuiz = () => {
           Start Date:
           <input
             type="datetime-local"
-            value={quizData.start_date}
+            value={formatDateForInput(quizData.start_date)}
             onChange={(e) => setQuizData({ ...quizData, start_date: e.target.value })}
             required
           />
@@ -148,12 +161,12 @@ const UpdateQuiz = () => {
             <br />
           </div>
         ))}
-
+    <div className="buttons">
         <button type="button" onClick={handleAddQuestion}>
           Add Question
         </button>
-
         <button type="submit">Save Changes</button>
+        </div>
       </form>
     </div>
   );
