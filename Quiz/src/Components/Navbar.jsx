@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom";
-import "../Styles/App.css"
+import "../Styles/Nav.css"
 import student from "../assets/book.png"
+/********************************** */
+import { Menu } from 'antd';
+import { HomeOutlined, UserOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import { Button, Layout, theme } from 'antd';
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
+import HomePage from "./HomePage";
+const { Header, Sider } = Layout;
 
+/*********************************** */
 const Navbar = ({ isTeacher }) => {
   const [isSubMenuOpen, setSubMenuOpen] = useState(false);
   const [isSubMenuOpen2, setSubMenuOpen2] = useState(false);
@@ -42,6 +50,7 @@ const Navbar = ({ isTeacher }) => {
     fetchUserInfo();
     setShowQuiz(isTeacher);
   }, [isTeacher]);
+
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -50,100 +59,67 @@ const Navbar = ({ isTeacher }) => {
   };
 
 
-  return (
-    <div>
-      <div>
-        <div className="sidebar">
-          <div className="logo">
-            <h2>logo</h2>
-          </div>
-          <ul className="nav-links">
-            <li>
-              <Link to="/"><img src={student} alt="" /><span>home</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="#" onClick={handleSubMenuToggle}><img src={student} alt="" /><span>Class</span><i className='bx bx-chevron-down'></i></Link>
-              <ul className={`sub-menu ${isSubMenuOpen ? 'open' : ''}`}>
-                {showQuiz && (
-                  <li>
-                    <Link to="/class/Add">
-                      <img src={student} alt="" />
-                      <span>Add Class</span>
-                    </Link>
-                  </li>
-                )}
-                {!showQuiz && (
-                <li>
-                  <Link to="/class/Join">
-                    <img src={student} alt="" />
-                    <span>Join Class</span>
-                  </Link>
-                </li>
-                 )}
-                <li>
-                  <Link to="/classes">
-                    <img src={student} alt="" />
-                    <span>List of Classes</span>
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            {/* {showQuiz && (
-              <li>
-                <Link to="/" onClick={handleSubMenuToggle2}><img src={student} alt="" /><span>Student</span><i className='bx bx-chevron-down'></i></Link>
-                <ul className={`sub-menu ${isSubMenuOpen2 ? 'open' : ''}`}>
-                  <li>
-                    <Link to="/">
-                      <img src={student} alt="" />
-                      <span>Add Student</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/">
-                      <img src={student} alt="" />
-                      <span>List of Students</span>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-            )} */}
-            <li>
-              <Link to="#" onClick={handleSubMenuToggle3}><img src={student} alt="" /><span>Quiz</span><i className='bx bx-chevron-down'></i></Link>
-              <ul className={`sub-menu ${isSubMenuOpen3 ? 'open' : ''}`}>
-                {showQuiz && (
-                  <li>
-                    <Link to="/Quiz/Add">
-                      <img src={student} alt="" />
-                      <span>Add Quiz</span>
-                    </Link>
-                  </li>
-                )}
-                <li>
-                <Link to="/Quizez">
-                    <img src={student} alt="" />
-                    <span>List of Quizez</span>
-                  </Link>
-                </li>
-              </ul>
-            </li>
+  /****************************************** */
 
-          </ul>
-          <div className="profile">
-            <div className="profile-content">
-              <img src={student} alt="" />
+  const [collapsed, setCollapsed] = useState(false);
+  const { token: { colorBgContainer },
+  } = theme.useToken();
+  useEffect(() => {
+    const rootElement = document.getElementById("root");
+    const userrole = document.getElementById("userrole");
+    if (rootElement) {
+      rootElement.style.left = collapsed ? "80px" : "200px";
+      rootElement.style.width = collapsed ? "calc(100% - 80px)" : "calc(100% - 200px)";
+      userrole.style.left = collapsed ? "calc(100% - 190px)":"calc(100% - 300px)"
+    }
+  }, [collapsed]);
+
+  /*******************************************/
+
+
+  return (
+    <Layout>
+      <Sider className="aside" collapsed={collapsed} collapsible trigger={null}>
+        <h1 className="logo">logo</h1>
+        <Menu theme="dark" mode="inline" className="menulist">
+          <Menu.Item key="home" icon={<HomeOutlined />}>
+            <Link to="/">Home</Link>
+          </Menu.Item>
+          <Menu.SubMenu key="class" icon={<HomeOutlined />} title="Class">
+            <Menu.Item key="class1" icon={<HomeOutlined />}><Link to="/Class/Add">Add a Class</Link></Menu.Item>
+            <Menu.Item key="class2" icon={<HomeOutlined />}><Link to="/Classes">Classes</Link></Menu.Item>
+          </Menu.SubMenu>
+          <Menu.SubMenu key="quiz" icon={<HomeOutlined />} title="Quiz">
+            <Menu.Item key="quiz1" icon={<HomeOutlined />}><Link to="/Quiz/Add">Add a Quiz</Link></Menu.Item>
+            <Menu.Item key="quiz2" icon={<HomeOutlined />}><Link to="/Quizez">Quizez</Link></Menu.Item>
+          </Menu.SubMenu>
+          <Menu.Item key="info" icon={<InfoCircleOutlined />}>
+            <Link to="/info">Info</Link>
+          </Menu.Item>
+        </Menu>
+      </Sider>
+      <Layout>
+        <Header style={{ padding: 0, background: colorBgContainer }} className="header" >
+          <Button
+            className="toggle" r
+            onClick={() => setCollapsed(!collapsed)}
+            type='text'
+            icon={collapsed ? <MenuUnfoldOutlined />
+              : <MenuFoldOutlined />}
+          />
+          <div id="userrole">
+            <div className="photo">
+              {<UserOutlined />}
             </div>
-            <li>
-              <div className="info-profile">
-                <p>{username}</p>
-                <p>{role}</p>
-              </div>
-              <i className='bx bx-log-out' onClick={handleLogout}></i>
-            </li>
+            <div className="text">
+              <p>{username}</p>
+              <p>{role}</p>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </Header>
+      </Layout>
+    </Layout>
+
   )
 };
 
