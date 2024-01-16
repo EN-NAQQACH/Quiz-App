@@ -69,7 +69,7 @@ ul li a i{
 }
 .profile {
   display: flex;
-  gap: 63px;
+  gap: 75px;
   align-items: center;
   padding: 15px;
   position: fixed;
@@ -88,7 +88,21 @@ i{
 }
 
 /************* Class Components ******************/
-
+.Home{
+  position: relative;
+  left: 260px;
+  width: calc(100% - 260px);
+  height: 100vh;  
+  padding: 15px;
+  background-color: rgb(209, 209, 209);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.Home h1 {
+  color:#7c7c7c;
+}
 .Content-Class{
   position: relative;
   left: 260px;
@@ -132,6 +146,7 @@ form input{
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  box-shadow: 0 2px 2px rgba(206, 206, 206, 0.1);
 }
 
 .class-table th, .class-table td {
@@ -139,6 +154,7 @@ form input{
   padding: 8px;
   text-align: left;
   padding: 10px;
+  text-align: center;
 }
 .class-table tbody tr td:first-child p{
   color: #6b6b6b;
@@ -162,3 +178,31 @@ form input{
 .class-table tbody tr:nth-child(even) {
   background-color: #d8d7d7;
 }
+
+#actions{
+  display: flex;
+  gap: 10px;
+  justify-content:center;
+}
+
+#actions a{
+  padding:5px;
+  width: 15%;
+  border: 1px solid #7c7c7c;
+  border-radius: 2px;
+  cursor: pointer;
+}
+#actions button{
+  width: 100%;
+  border:none;
+  cursor: pointer;
+}
+
+#actions a:first-child{
+  background-color: #CCC8AA;
+}
+#actions a:not(:first-child){
+  background-color:#c7c7c7 ;
+}
+/************* Nvabar Components ******************/
+/************* Quiz Components ******************/
