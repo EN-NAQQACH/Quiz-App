@@ -9,11 +9,15 @@ import Class from './Components/AddClass';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import ListofClasses from './Components/ListofClasses';
 import ListofStudentsinClass from './Components/ListofStudentsinClass';
+import JoinClass from './Components/JoinClass';
+import AddQuiz from './Components/AddQuiz';
+import Quiz from './Components/Quiz';
 
 
 function App() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isTeacher, setIsTeacher] = useState(false);
 
   useEffect(() => {
     // Define routes where Navbar should not be rendered
@@ -23,21 +27,26 @@ function App() {
     const shouldRenderNavbar = !routesWithoutNavbar.includes(location.pathname);
 
     if (shouldRenderNavbar) {
-      // Perform any additional logic if needed
+      const userRole = localStorage.getItem('userRole');
+      setIsTeacher(userRole === 'teacher');
     }
   }, [location]);
 
   return (
     <>
-      <Routes>
+     <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Signup" element={<Signup />} />
-        <Route path="/Login" element={<Login />} />
+        <Route path="/Login" element={<Login setIsTeacher={setIsTeacher} />} />
         <Route path="/class/Add" element={<Class />} />
         <Route path="/classes" element={<ListofClasses />} />
         <Route path="/classes/:classId/students" element={<ListofStudentsinClass />} />
+        <Route path="/class/Join" element={<JoinClass />} />
+        <Route path="/Quiz/Add" element={<AddQuiz />} />
+        <Route path="/Quiz/Add/:classId" element={<Quiz />} />
+        <Route path="/Quizez" element={<ListofClasses />} />
       </Routes>
-      {location.pathname !== '/Signup' && location.pathname !== '/Login' && <Navbar />}
+      {location.pathname !== '/Signup' && location.pathname !== '/Login' && <Navbar isTeacher={isTeacher} />}
     </>
   );
 }

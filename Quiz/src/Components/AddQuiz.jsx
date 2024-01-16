@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import "../Styles/App.css"
 function AddQuiz() {
   const [classes, setClasses] = useState([]);
+  const [loading, setLoading] = useState(true);
   const fetchClasses = async () => {
-    const response = await fetch("https://quiz-app.eroslabs.live/api/classes", {
+    try {
+          const response = await fetch("https://quiz-app.eroslabs.live/api/classes", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -15,6 +17,11 @@ function AddQuiz() {
     console.log(data);
     const classesArray = data.hasOwnProperty('classes') ? data.classes : [];
     setClasses(classesArray);
+    setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+
 
   }
 
@@ -34,11 +41,13 @@ function AddQuiz() {
           </tr>
         </thead>
         <tbody>
-          {Array.isArray(classes) ? (
+      {loading ? (
+        <p>Loading...</p>
+      ): classes.length > 0 ? (
             classes.map((classInfo) => (
-              <tr key={classInfo._id}>
-                <td ><Link to={`/classes/${classInfo._id}/students`}>{classInfo.class_name}</Link></td>
-                <td><div id="actions"><Link to={`/classes/${classInfo._id}/students`}><button>Add Quiz</button></Link><Link to={`/classes/${classInfo._id}/students`}><button>Update</button></Link></div></td>
+              <tr key={classInfo.classObject._id}>
+                <td ><Link to="#">{classInfo.classObject.class_name}</Link></td>
+                <td><div id="actions"><Link to={`/Quiz/Add/${classInfo.classObject._id}`}><button>Add Quiz</button></Link><Link to={`/classes/${classInfo.classObject._id}/students`}><button>Update</button></Link></div></td>
               </tr>
             ))
           ) : (

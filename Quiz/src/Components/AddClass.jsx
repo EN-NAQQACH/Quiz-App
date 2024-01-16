@@ -4,7 +4,7 @@ function Class() {
   const [class_name, setClass] = useState('');
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent the default form submission
+    e.preventDefault();
 
     const token = localStorage.getItem('token');
     console.log(token);

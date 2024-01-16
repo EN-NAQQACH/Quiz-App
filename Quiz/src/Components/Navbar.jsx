@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom";
-import "../App.css"
-import 'boxicons';
+import "../Styles/App.css"
 import student from "../assets/book.png"
-const Navbar = () => {
+
+const Navbar = ({ isTeacher }) => {
   const [isSubMenuOpen, setSubMenuOpen] = useState(false);
   const [isSubMenuOpen2, setSubMenuOpen2] = useState(false);
   const [isSubMenuOpen3, setSubMenuOpen3] = useState(false);
-
   const handleSubMenuToggle = () => {
     setSubMenuOpen(!isSubMenuOpen);
   };
@@ -18,6 +17,38 @@ const Navbar = () => {
   const handleSubMenuToggle3 = () => {
     setSubMenuOpen3(!isSubMenuOpen3);
   };
+  const [username, setusername] = useState('');
+  const [role, setrole] = useState('');
+
+  const fetchUserInfo = async () => {
+    try {
+      const userInfoRes = await fetch('https://quiz-app.eroslabs.live/api/user/info', {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`, // Use the latest token here
+        },
+      });
+      const userData = await userInfoRes.json();
+      setusername(userData.username);
+      setrole(userData.role);
+    } catch (error) {
+      console.error('Error fetching user info:', error);
+    }
+  };
+
+  // if the user is not a teacher hide the quiz
+  const [showQuiz, setShowQuiz] = useState(true);
+  useEffect(() => {
+    fetchUserInfo();
+    setShowQuiz(isTeacher);
+  }, [isTeacher]);
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userRole');
+    navigate('/Login');
+  };
+
 
   return (
     <div>
@@ -32,14 +63,24 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="#"><img src={student} alt="" /><span>Class</span><i className='bx bx-chevron-down' onClick={handleSubMenuToggle}></i></Link>
+              <Link to="#" onClick={handleSubMenuToggle}><img src={student} alt="" /><span>Class</span><i className='bx bx-chevron-down'></i></Link>
               <ul className={`sub-menu ${isSubMenuOpen ? 'open' : ''}`}>
+                {showQuiz && (
+                  <li>
+                    <Link to="/class/Add">
+                      <img src={student} alt="" />
+                      <span>Add Class</span>
+                    </Link>
+                  </li>
+                )}
+                {!showQuiz && (
                 <li>
-                  <Link to="/class/Add">
+                  <Link to="/class/Join">
                     <img src={student} alt="" />
-                    <span>Add Class</span>
+                    <span>Join Class</span>
                   </Link>
                 </li>
+                 )}
                 <li>
                   <Link to="/classes">
                     <img src={student} alt="" />
@@ -48,40 +89,45 @@ const Navbar = () => {
                 </li>
               </ul>
             </li>
+            {/* {showQuiz && (
+              <li>
+                <Link to="/" onClick={handleSubMenuToggle2}><img src={student} alt="" /><span>Student</span><i className='bx bx-chevron-down'></i></Link>
+                <ul className={`sub-menu ${isSubMenuOpen2 ? 'open' : ''}`}>
+                  <li>
+                    <Link to="/">
+                      <img src={student} alt="" />
+                      <span>Add Student</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/">
+                      <img src={student} alt="" />
+                      <span>List of Students</span>
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+            )} */}
             <li>
-              <Link to="/"><img src={student} alt="" /><span>Student</span><i className='bx bx-chevron-down' onClick={handleSubMenuToggle2}></i></Link>
-              <ul className={`sub-menu ${isSubMenuOpen2 ? 'open' : ''}`}>
-                <li>
-                  <Link to="/">
-                    <img src={student} alt="" />
-                    <span>Add Student</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/">
-                    <img src={student} alt="" />
-                    <span>List of Students</span>
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Link to="/"><img src={student} alt="" /><span>Quiz</span><i className='bx bx-chevron-down' onClick={handleSubMenuToggle3}></i></Link>
+              <Link to="#" onClick={handleSubMenuToggle3}><img src={student} alt="" /><span>Quiz</span><i className='bx bx-chevron-down'></i></Link>
               <ul className={`sub-menu ${isSubMenuOpen3 ? 'open' : ''}`}>
+                {showQuiz && (
+                  <li>
+                    <Link to="/Quiz/Add">
+                      <img src={student} alt="" />
+                      <span>Add Quiz</span>
+                    </Link>
+                  </li>
+                )}
                 <li>
-                  <Link to="/">
+                <Link to="/Quizez">
                     <img src={student} alt="" />
-                    <span>Add Quiz</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/">
-                    <img src={student} alt="" />
-                    <span>List of Quiz</span>
+                    <span>List of Quizez</span>
                   </Link>
                 </li>
               </ul>
             </li>
+
           </ul>
           <div className="profile">
             <div className="profile-content">
@@ -89,10 +135,10 @@ const Navbar = () => {
             </div>
             <li>
               <div className="info-profile">
-                <p>mohssine</p>
-                <p>student</p>
+                <p>{username}</p>
+                <p>{role}</p>
               </div>
-              <i className='bx bx-log-out'></i>
+              <i className='bx bx-log-out' onClick={handleLogout}></i>
             </li>
           </div>
         </div>
