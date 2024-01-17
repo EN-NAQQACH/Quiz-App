@@ -30,7 +30,7 @@ const QuizPage = () => {
     fetchQuiz();
   }, [classId, quizId]);
   return (
-    <div className="content">
+    <div className="Quiz-Page">
       {quiz ? (
         <QuizForm quiz={quiz} />
       ) : (

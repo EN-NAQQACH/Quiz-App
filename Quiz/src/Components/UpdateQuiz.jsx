@@ -1,8 +1,9 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import '../Styles/Quiz.css';
 
 const UpdateQuiz = () => {
+    const navigate = useNavigate();
     const { classId, quizId } = useParams();
     const [quizData, setQuizData] = useState({
       quiz_name: '',
@@ -70,11 +71,36 @@ const UpdateQuiz = () => {
     
         return `${year}-${month}-${day}T${hours}:${minutes}`;
       };
+
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        try {
+          const response = await fetch(`https://quiz-app.eroslabs.live/api/classes/${classId}/quizzes/${quizId}`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify(quizData),
+          });
+    
+          if (response.ok) {
+            alert('Quiz updated successfully!');
+            navigate(`/Quiz/${classId}`);
+          } else {
+            const errorMessage = await response.text();
+            console.error(`Failed to update quiz. Server returned: ${response.status} - ${errorMessage}`);
+          }
+        } catch (error) {
+          console.error('An error occurred during quiz update:', error);
+        }
+      };
   
   return (
     <div className="content">
       <h2>Edit Quiz</h2>
-      <form className="formquiz" >
+      <form className="formquiz" onSubmit={handleSubmit}>
         <label>
           Quiz Name:
           <input
@@ -148,7 +174,7 @@ const UpdateQuiz = () => {
                       newQuestions[questionIndex].options[optionIndex].is_correct = e.target.checked;
                       setQuizData({ ...quizData, questions: newQuestions });
                     }}
-                    required
+                    
                   />
                 </label>
                 <br />
