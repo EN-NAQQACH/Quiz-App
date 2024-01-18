@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Class() {
   const [class_name, setClass] = useState('');
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -28,9 +29,14 @@ function Class() {
       alert('User is not a Teacher');
     }
   };
+  useEffect(()=>{
+    if (!localStorage.getItem('token')) {
+      navigate('/Login');
+    }
+  },[navigate])
 
   return (
-    <div className="Content-Class">
+    <div className="content">
       <h2> Add new Class</h2>
       <form onSubmit={handleSubmit}>
         <input

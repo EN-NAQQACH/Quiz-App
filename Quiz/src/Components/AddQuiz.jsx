@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 import "../Styles/App.css"
 function AddQuiz() {
+  const navigate = useNavigate();
   const [classes, setClasses] = useState([]);
   const [loading, setLoading] = useState(true);
   const fetchClasses = async () => {
@@ -27,11 +28,14 @@ function AddQuiz() {
 
 
   useEffect(() => {
+      if (!localStorage.getItem('token')) {
+        navigate('/Login');
+      }
     fetchClasses();
-  }, [])
+  }, [navigate])
 
   return (
-    <div className="Content-Class">
+    <div className="content">
       <h2>List of Classes</h2>
       <table className="class-table">
         <thead>
@@ -47,7 +51,7 @@ function AddQuiz() {
             classes.map((classInfo) => (
               <tr key={classInfo.classObject._id}>
                 <td ><Link to="#">{classInfo.classObject.class_name}</Link></td>
-                <td><div id="actions"><Link to={`/Quiz/Add/${classInfo.classObject._id}`}><button>Add Quiz</button></Link><Link to={`/classes/${classInfo.classObject._id}/students`}><button>Update</button></Link></div></td>
+                <td><div id="actions"><Link to={`/Quiz/Add/${classInfo.classObject._id}`}><button>Add Quiz</button></Link><Link to={`/Classes/${classInfo.classObject._id}/students`}><button>Update</button></Link></div></td>
               </tr>
             ))
           ) : (

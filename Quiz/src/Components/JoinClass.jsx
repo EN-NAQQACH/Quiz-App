@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function JoinClass() {
   const [classId, setClass] = useState('');
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -21,9 +22,13 @@ function JoinClass() {
     const data = await res.json();
     console.log(data);
   };
-
+  useEffect(()=>{
+    if (!localStorage.getItem('token')) {
+      navigate('/Login');
+    }
+  },[navigate])
   return (
-    <div className="Content-Class">
+    <div className="Content">
       <h2> Join to a Class</h2>
       <form onSubmit={handleSubmit}>
         <input
