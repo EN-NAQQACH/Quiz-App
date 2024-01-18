@@ -36,12 +36,17 @@
     z-index: 1;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+.css-dev-only-do-not-override-zl9ks2{
+    
 }
 #userrole {
     position: relative;
     display: flex;
     align-items: center;
     transition: all 0.3s ease;
+    width: 100%;
 }
 #userrole .text{
     margin-left: 30px;
@@ -114,4 +119,23 @@
 }
 .Quiz-Form .option-content input{
     margin-bottom: 12px;
+}
+
+.btn-log {
+    width: 100%;
+    display: flex;
+}
+.btn-log button{
+    width: 5%;
+    margin-left: 25px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background-color: #2a548b80;
+    padding: 5px;
+    color: white;
+}
+.btn-log button:hover{
+    background-color: #2a548bd7;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
