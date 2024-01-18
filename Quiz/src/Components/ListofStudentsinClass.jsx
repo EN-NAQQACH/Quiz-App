@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams,useNavigate} from 'react-router-dom';
 import '../Styles/App.css';
 
 function ListofStudentsinClass() {
   let { classId } = useParams();
+  const navigate = useNavigate();
+  console.log(classId)
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+      if (!localStorage.getItem('token')) {
+        navigate('/Login');
+      }
     fetchStudents();
   }, []);
 
@@ -32,8 +37,30 @@ function ListofStudentsinClass() {
     }
   };
 
+
+  const deleteStudent = async (studentId) => {
+    
+    try {
+      console.log(studentId)
+      const response = await fetch(`https://quiz-app.eroslabs.live/api/classes/${classId}/remove-student`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify({studentId})
+      })
+      const data = await response.json();
+      if (response.ok) {
+        alert(data.message);
+      }
+    }catch(e){
+      console.log(e)
+    };
+  }
+
   return (
-    <div className="Content-Class">
+    <div className="content">
       <h2>Students Information</h2>
       {/* {loading ? (
         <p>Loading...</p>
@@ -58,6 +85,7 @@ function ListofStudentsinClass() {
             <th>Name</th>
             <th>Email</th>
             <th>Username</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -70,11 +98,11 @@ function ListofStudentsinClass() {
                 <td>{student.name}</td>
                 <td>{student.email}</td>
                 <td>{student.username}</td>
+                <td><button onClick={() => deleteStudent(student.id)}>Delete</button></td>
               </tr>
-            ))
-          ) : (
+            ))) : (
             <tr>
-              <td colSpan="4">No classes found</td>
+              <td colSpan="5">No Students found</td>
             </tr>
           )}
         </tbody>
