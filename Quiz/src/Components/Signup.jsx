@@ -1,7 +1,7 @@
-import {useState } from 'react';
+import { useState } from 'react';
 import React from 'react';
 import '../Styles/Signup.css';
-import { Link,useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Signup() {
     const [isStudent, setStudent] = useState(false);
@@ -14,11 +14,8 @@ function Signup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const selectedRole = isStudent ? 'student' : isTeacher ? 'teacher' : null;
-        if (!selectedRole) {
-            alert('Please select a role before signing up.');
-            return;
-        }else if(username === '' || full_name === '' || email === '' || password === ''){
-            alert('Please fill all the fields before signing up.');
+        if (username === '' || full_name === '' || email === '' || password === '' || !selectedRole) {
+            alert('Please fill all the fields before signing up or select a role.');
             return;
         }
 
@@ -26,27 +23,27 @@ function Signup() {
         if (!apiurl) {
             alert('Invalid role selected.');
             return;
-        } 
+        }
 
-            const res = await fetch(apiurl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({username , full_name, email , password})
-            })
-            const data = await res.json();
-            console.log(data);
-            if (res.ok) {
-                alert('Signup successful!');
-                navigate('/Login');
-              } else {
-                alert('Signup failed. Please try again.');
-              }
+        const res = await fetch(apiurl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, full_name, email, password })
+        })
+        const data = await res.json();
+        console.log(data);
+        if (res.ok) {
+            alert('Signup successful!');
+            navigate('/Login');
+        } else {
+            alert('Signup failed. Please try again.');
+        }
 
     }
     const handleChange = (e) => {
-        const {name, checked} = e.target;
+        const { name, checked } = e.target;
         if (name === 'student') {
             setStudent(checked);
             if (checked) {
@@ -65,17 +62,17 @@ function Signup() {
             <form onSubmit={handleSubmit}>
                 <input type="text" value={username} onChange={(e) => setusername(e.target.value)} placeholder='Username' />
                 <input type="text" value={full_name} onChange={(e) => setfullname(e.target.value)} placeholder='fullname' />
-                <input type="email"  value={email} onChange={(e) => setemail(e.target.value)} placeholder='email@gmail.com' />
+                <input type="email" value={email} onChange={(e) => setemail(e.target.value)} placeholder='email@gmail.com' />
                 <input type="password" value={password} onChange={(e) => setpassword(e.target.value)} placeholder='password' />
                 <label htmlFor="">
-                <label className='Student'>
-                    <input type="checkbox" name="student" checked={isStudent} onChange={handleChange}/>
-                    Student
-                </label>
-                <label className='Teacher'>
-                    <input type="checkbox" name="teacher" checked={isTeacher} onChange={handleChange}/>
-                    Teacher
-                </label>
+                    <label className='Student'>
+                        <input type="checkbox" name="student" checked={isStudent} onChange={handleChange} />
+                        Student
+                    </label>
+                    <label className='Teacher'>
+                        <input type="checkbox" name="teacher" checked={isTeacher} onChange={handleChange} />
+                        Teacher
+                    </label>
                 </label>
                 <button type="submit">Sign up</button>
                 <p>you have already an account ? <Link to="/Login">Log In</Link></p>

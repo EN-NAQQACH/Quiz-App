@@ -32,8 +32,8 @@ const NewQuizForm = () => {
         body: JSON.stringify({
           quiz_name,
           classId,
-          duration,
           start_date,
+          duration,
           questions,
         }),
       });
@@ -50,7 +50,7 @@ const NewQuizForm = () => {
   };
 
   return (
-    <div className="Quiz-Content">
+    <div className="content">
       <h2>Create a New Quiz</h2>
       <form className="formquiz" onSubmit={handleSubmitQuiz}>
         <label>
@@ -107,7 +107,6 @@ const NewQuizForm = () => {
                   is Correct ?
                   <input
                     type="checkbox"
-                    required="true" 
                     checked={option.is_correct}
                     onChange={(e) => {
                       const newQuestions = [...questions];

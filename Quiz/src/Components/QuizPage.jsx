@@ -8,9 +8,7 @@ const QuizPage = () => {
   const { classId, quizId } = useParams();
   const [quiz, setQuiz] = useState(null);
     const navigate = useNavigate();
-  useEffect(() => {
     const fetchQuiz = async () => {
-      try {
         const response = await fetch(`https://quiz-app.eroslabs.live/api/classes/${classId}/quizzes/${quizId}`, {
           method: 'GET',
           headers: {
@@ -18,17 +16,22 @@ const QuizPage = () => {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           },
         });
-
         const data = await response.json();
-        setQuiz(data.quiz);
-        console.log(data)
-      } catch (error) {
-        console.log(error)
-      }
+        if(response.ok){
+        
+          setQuiz(data.quiz);
+        }else{
+          alert(data.error)
+          navigate(`/Quiz/${classId}`)
+        }
     };
 
+  useEffect(() => {
+      if (!localStorage.getItem('token')) {
+        navigate('/Login');
+      }
     fetchQuiz();
-  }, [classId, quizId]);
+  }, []);
   return (
     <div className="Quiz-Page">
       {quiz ? (

@@ -2,90 +2,9 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  text-decoration: none;
-  transition: all 0.5s ease;
   background-color: transparent;
 }
 /************* Navbar Components ******************/
-.sidebar{
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 260px;
-  background: #777777;
-  padding: 5px;
-}
-img{
-  width: 25px;
-}
-.logo{
-  margin-bottom: 20px;
-  padding: 15px;
-
-}
-.logo h2{
-  color: white;
-
-}
-ul li a:hover{
-  border: 1px solid transparent;
-  border-radius: 2px;
-  background-color: #7c7c7c;
-}
-ul li span {
-  color: white;
-}
-ul{
-  padding: 15px;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-ul li a{
-
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  border: 1px solid transparent;
-  padding: 7px;
-}
-ul li a i{
-  color: white;
-  font-weight: 700;
-  font-size: 20px;
-}
-.sub-menu {
-  display: none; 
-  transition: all 0.5s ease; 
-}
-.sub-menu.open {
-  display: block;
-  transition: all 0.5s ease;
-}
-.profile .profile-content img{
-    width: 23px;
-}
-.profile {
-  display: flex;
-  gap: 75px;
-  align-items: center;
-  padding: 15px;
-  position: fixed;
-  bottom: 0;
-  background-color: #818181;
-  margin-bottom: 5px;
-}
-.profile  li {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 50px;
-}
-i{
-  cursor: pointer;
-}
 
 /************* Class Components ******************/
 .Home{
@@ -114,7 +33,6 @@ i{
 .Content-Class h2{
   padding: 15px;
 }
-
 form button {
   padding: 10px;
   border-radius: 5px;
@@ -123,7 +41,6 @@ form button {
   background-color: #CCC8AA;
   color: #525252;
   width: 30%;
-
 }
 form{
   display: flex;
@@ -145,12 +62,18 @@ form input{
 .class-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 5px;
   box-shadow: 0 2px 2px rgba(206, 206, 206, 0.1);
 }
-
+.content h2{
+  margin-bottom: 20px;
+}
+.content label{
+  color: #6b6b6b;
+  font-size: 12px;
+}
 .class-table th, .class-table td {
-  border: 1px solid #ddd;
+  border: 1px solid #052c3f;
   padding: 8px;
   text-align: left;
   padding: 10px;
@@ -164,19 +87,23 @@ form input{
   cursor: pointer;
 }
 .class-table tbody tr td a{
-  color: rgb(73, 73, 73);
+  color: rgb(168, 168, 168);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.4s;
 }
 .class-table tbody tr td a:hover{
-  color: rgb(22, 22, 22);
+  color: #1473f9;
+  transition: all 0.4s;
 }
 
 .class-table th {
-  background-color: #bebebe;
-  border-radius: 2px;
+  background-color: #052c3f;
+  color: white;
 }
 
 .class-table tbody tr:nth-child(even) {
-  background-color: #d8d7d7;
+  background-color: #eeeeee;
 }
 
 #actions{
@@ -204,5 +131,134 @@ form input{
 #actions a:not(:first-child){
   background-color:#c7c7c7 ;
 }
-/************* Nvabar Components ******************/
-/************* Quiz Components ******************/
+/************* form-info Components ******************/
+.form-info{
+margin-top: 20px;
+}
+.form-info input{
+  margin-top: 5px;
+  border: 1px solid #0c425e;
+  border-radius: 0;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  }
+/************* ListofQuiz Components ******************/
+/* QuizComponent.css */
+
+.quizzes-container {
+  width: 100%;
+  margin: 50px auto;
+  
+}
+
+.quizzes-list {
+  list-style: none;
+  padding: 50px;  
+}
+
+.quiz-item {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 2px 2px rgba(165, 165, 165, 0.295);
+}
+.quiz-item p {
+  margin-bottom: 10px;
+}
+.quiz-item p:last-child{
+  margin-bottom: 0;
+}
+
+.quiz-title {
+  font-size: 18px;
+  font-weight: bold;
+  padding:5px;
+}
+.quiz-item.expanded {
+  height: auto;
+}
+
+.quiz-details {
+  margin-top: 10px;
+  padding: 40px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+}
+
+.result-page{
+  margin-top: 80px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;  
+}
+.info-score{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+}
+.info-score .title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+@keyframes moveDiv {
+  0% {
+    transform: translateX();
+  }
+  50% {
+    transform: translateX(8px); /* Adjust the distance you want the div to move */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.info-score .title div {
+  background-color: #052c3f;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.7rem;
+  font-weight: 800;
+  box-shadow: 1px 5px 20px rgba(14, 70, 173, 0.568);
+  animation: moveDiv 3s infinite; /* Adjust the duration and other properties as needed */
+}
+.details-score{
+  display: flex;
+  align-items: center;
+  gap: 150px;
+  margin-top: 30px;
+}
+.details-score div{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.details-score div:not(:first-child){
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  gap: 5px;
+}
+.btn-back{
+  width:420px;
+}
+.btn-back button{
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background-color: #162f50;
+  color: white;
+  width: 100%;
+}

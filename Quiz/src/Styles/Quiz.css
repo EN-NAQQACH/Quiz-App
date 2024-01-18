@@ -1,16 +1,18 @@
-.Quiz-Content{
+/* .Quiz-Content{
     position: relative;
     left: 260px;
     width: calc(100% - 260px);
     min-height: 100vh;  
     padding: 15px;
     background-color: rgb(235, 235, 235);
-  }
+  } */
+
 .formquiz{
     margin: auto;
     margin-top: 50px;
     width: 50%;
     display: block;
+    margin-bottom: 100px;
   }
   .formquiz input {
     border-radius: 0;

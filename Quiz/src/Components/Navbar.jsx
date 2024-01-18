@@ -5,7 +5,7 @@ import "../Styles/Nav.css"
 import student from "../assets/book.png"
 /********************************** */
 import { Menu } from 'antd';
-import { HomeOutlined, UserOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import { HomeOutlined, UserOutlined, InfoCircleOutlined, PlusCircleOutlined, LogoutOutlined} from '@ant-design/icons';
 import { Button, Layout, theme } from 'antd';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import HomePage from "./HomePage";
@@ -13,18 +13,18 @@ const { Header, Sider } = Layout;
 
 /*********************************** */
 const Navbar = ({ isTeacher }) => {
-  const [isSubMenuOpen, setSubMenuOpen] = useState(false);
-  const [isSubMenuOpen2, setSubMenuOpen2] = useState(false);
-  const [isSubMenuOpen3, setSubMenuOpen3] = useState(false);
-  const handleSubMenuToggle = () => {
-    setSubMenuOpen(!isSubMenuOpen);
-  };
-  const handleSubMenuToggle2 = () => {
-    setSubMenuOpen2(!isSubMenuOpen2);
-  };
-  const handleSubMenuToggle3 = () => {
-    setSubMenuOpen3(!isSubMenuOpen3);
-  };
+  // const [isSubMenuOpen, setSubMenuOpen] = useState(false);
+  // const [isSubMenuOpen2, setSubMenuOpen2] = useState(false);
+  // const [isSubMenuOpen3, setSubMenuOpen3] = useState(false);
+  // const handleSubMenuToggle = () => {
+  //   setSubMenuOpen(!isSubMenuOpen);
+  // };
+  // const handleSubMenuToggle2 = () => {
+  //   setSubMenuOpen2(!isSubMenuOpen2);
+  // };
+  // const handleSubMenuToggle3 = () => {
+  //   setSubMenuOpen3(!isSubMenuOpen3);
+  // };
   const [username, setusername] = useState('');
   const [role, setrole] = useState('');
 
@@ -44,7 +44,7 @@ const Navbar = ({ isTeacher }) => {
     }
   };
 
-  // if the user is not a teacher hide the quiz
+  //if the user is not a teacher hide the quiz
   const [showQuiz, setShowQuiz] = useState(true);
   useEffect(() => {
     fetchUserInfo();
@@ -70,7 +70,7 @@ const Navbar = ({ isTeacher }) => {
     if (rootElement) {
       rootElement.style.left = collapsed ? "80px" : "200px";
       rootElement.style.width = collapsed ? "calc(100% - 80px)" : "calc(100% - 200px)";
-      userrole.style.left = collapsed ? "calc(100% - 190px)":"calc(100% - 300px)"
+      userrole.style.left = collapsed ? "calc(100% - 260px)":"calc(100% - 380px)"
     }
   }, [collapsed]);
 
@@ -86,11 +86,18 @@ const Navbar = ({ isTeacher }) => {
             <Link to="/">Home</Link>
           </Menu.Item>
           <Menu.SubMenu key="class" icon={<HomeOutlined />} title="Class">
-            <Menu.Item key="class1" icon={<HomeOutlined />}><Link to="/Class/Add">Add a Class</Link></Menu.Item>
+          {isTeacher && (
+            <Menu.Item key="class1" icon={<PlusCircleOutlined />}><Link to="/Class/Add">Add a Class</Link></Menu.Item>)}
+            {!isTeacher && (
+                          <Menu.Item key="class1" icon={<PlusCircleOutlined />}><Link to="/Class/Join">Join a Class</Link></Menu.Item>)}
             <Menu.Item key="class2" icon={<HomeOutlined />}><Link to="/Classes">Classes</Link></Menu.Item>
           </Menu.SubMenu>
           <Menu.SubMenu key="quiz" icon={<HomeOutlined />} title="Quiz">
-            <Menu.Item key="quiz1" icon={<HomeOutlined />}><Link to="/Quiz/Add">Add a Quiz</Link></Menu.Item>
+          {isTeacher && (
+              <Menu.Item key="quiz1" icon={<PlusCircleOutlined />}>
+                <Link to="/Quiz/Add">Add a Quiz</Link>
+              </Menu.Item>
+            )}
             <Menu.Item key="quiz2" icon={<HomeOutlined />}><Link to="/Quizez">Quizez</Link></Menu.Item>
           </Menu.SubMenu>
           <Menu.Item key="info" icon={<InfoCircleOutlined />}>
@@ -114,6 +121,9 @@ const Navbar = ({ isTeacher }) => {
             <div className="text">
               <p>{username}</p>
               <p>{role}</p>
+            </div>
+            <div className="btn-log">
+            <button onClick={handleLogout}><LogoutOutlined/></button>
             </div>
           </div>
         </Header>

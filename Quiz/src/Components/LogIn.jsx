@@ -52,7 +52,7 @@ function LogIn({ setIsTeacher }) {
             }
           };
       
-          fetchUserInfo(); // Call the fetchUserInfo function
+          fetchUserInfo(); 
           alert('Login successful!');
           navigate('/');
         } else {
