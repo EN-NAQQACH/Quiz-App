@@ -33,6 +33,6 @@ Clone the Repository
     ```bash
     npm run dev
 # Collaborators
-Author:@EN-NAQQACH
+Front-end : [Mohssine En-naqqach](https://github.com/EN-NAQQACH/Quiz-App)
 
-Author:@YassineKADER
+Back-end: [Yassine Kader](https://github.com/YassineKADER/quiz-App-Express)
