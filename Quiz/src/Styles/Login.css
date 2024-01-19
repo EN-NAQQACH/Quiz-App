@@ -215,6 +215,7 @@
     border-radius: 15px;
     border: 1px solid #203d6bc7;
     color: #203d6bc7;
+    cursor: pointer;
   }
   header .btn-login-signup button:hover{
     color: white;
