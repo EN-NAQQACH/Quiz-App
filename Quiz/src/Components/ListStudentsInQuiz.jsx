@@ -36,10 +36,31 @@ function ListStudentsinQuiz() {
               navigate('/Login');
             }
         fetchStudents();
-    }, []); // Empty dependency array
+    }, []);
+
+    const downloadCSV = async () => {
+        const res = await fetch(`https://quiz-app.eroslabs.live/api/classes/${classId}/quizzes/${quizId}/csvresults`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'text/csv',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            }
+        });
+        const blob = await res.blob();
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'quiz_results.csv';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    };
+
+
     return (
         <div className="content">
             <h2>Quiz Results</h2>
+            <button onClick={downloadCSV} id="download">Download CSV</button>
             <table className="class-table">
                 <thead>
                     <tr>
@@ -47,6 +68,7 @@ function ListStudentsinQuiz() {
                         <th>Quiz</th>
                         <th>Score</th>
                         <th>Submitted At</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -61,6 +83,7 @@ function ListStudentsinQuiz() {
                                 <td>{result.quiz_id.quiz_name}</td>
                                 <td>{result.score}</td>
                                 <td>{result.submitted_at}</td>
+                                
                             </tr>
                         ))
                     ) : (
