@@ -56,7 +56,7 @@ const Navbar = ({ isTeacher }) => {
     setTimeout(() => {
       localStorage.removeItem('token');
       localStorage.removeItem('userRole');
-      window.location.href = '/Login';
+      window.location.href = '/';
     }, 1500);
   };
 
