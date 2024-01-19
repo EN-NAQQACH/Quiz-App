@@ -17,17 +17,18 @@ Quiz Participation: Allow students to participate in quizzes.
 # Usage
 
 Clone the Repository
- ```bash
-git clone https://github.com/EN-NAQQACH/Quiz-App.git
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/EN-NAQQACH/Quiz-App.git
 
-Open the cloned project directory
+2. **Open the cloned project directory**
+    ```bash
+    cd Quiz
 
-cd Quiz
+3. **install the dependencies specified in the package.json file of a Node.js project**
+    ```bash
+    npm install
 
-install the dependencies specified in the package.json file of a Node.js project
-
-npm install
-
-run the project 
-
-npm run dev
+4. **run the project**
+    ```bash
+    npm run dev
