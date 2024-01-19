@@ -1,12 +1,12 @@
-# Quiz-App
+## Quiz-App
 This is the Quiz App API, which provides endpoints for managing classes, quizzes, responses, and results. The APP is hosted on https://quiz-app.eroslabs.live/.
-# Project Structure
+## Project Structure
 The project is structured as follows:
 
 `/assets`: Contains static assets such as images and styles.
 
 `/src`: Contains the source code of the frontend.
-# Features
+## Features
 1. **`User Authentication`: Secure login and registration functionality.**
 
 2. **`Class Management`: View and manage classes.**
@@ -14,7 +14,7 @@ The project is structured as follows:
 3. **`Quiz Creation`: Create and manage quizzes for each class.**
 
 4. **`Quiz Participation`: Allow students to participate in quizzes.**
-# Usage
+## Usage
 
 Clone the Repository
 1. **Clone the Repository**
@@ -32,7 +32,7 @@ Clone the Repository
 4. **run the project**
     ```bash
     npm run dev
-# Collaborators
+## Collaborators
 Front-end : [Mohssine En-naqqach](https://github.com/EN-NAQQACH/Quiz-App)
 
 Back-end: [Yassine Kader](https://github.com/YassineKADER/quiz-App-Express)
