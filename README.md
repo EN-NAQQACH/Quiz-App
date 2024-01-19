@@ -3,17 +3,17 @@ This is the Quiz App API, which provides endpoints for managing classes, quizzes
 # Project Structure
 The project is structured as follows:
 
-/assets: Contains static assets such as images and styles.
+`/assets`: Contains static assets such as images and styles.
 
-/src: Contains the source code of the frontend.
+`/src`: Contains the source code of the frontend.
 # Features
-1. **User Authentication: Secure login and registration functionality.**
+1. **`User Authentication`: Secure login and registration functionality.**
 
-2. **Class Management: View and manage classes.**
+2. **`Class Management`: View and manage classes.**
 
-3. **Quiz Creation: Create and manage quizzes for each class.**
+3. **`Quiz Creation`: Create and manage quizzes for each class.**
 
-4. **Quiz Participation: Allow students to participate in quizzes.**
+4. **`Quiz Participation`: Allow students to participate in quizzes.**
 # Usage
 
 Clone the Repository
