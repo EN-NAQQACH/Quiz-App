@@ -36,3 +36,6 @@ Clone the Repository
 Front-end : [Mohssine En-naqqach](https://github.com/EN-NAQQACH/Quiz-App)
 
 Back-end: [Yassine Kader](https://github.com/YassineKADER/quiz-App-Express)
+
+## License
+[Apache-2.0](https://choosealicense.com/licenses/apache-2.0/)
