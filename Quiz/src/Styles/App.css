@@ -115,14 +115,17 @@ form input{
 #actions a{
   padding:5px;
   width: 15%;
-  border: 1px solid #7c7c7c;
+  border: 1px solid #e9e9e9;
   border-radius: 2px;
   cursor: pointer;
+  color: wheat;
 }
 #actions button{
   width: 100%;
+  color: #0c425e;
   border:none;
   cursor: pointer;
+  padding:0;
 }
 
 #actions a:first-child{
@@ -261,4 +264,70 @@ margin-top: 20px;
   background-color: #162f50;
   color: white;
   width: 100%;
+}
+
+#deletebtn{
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid rgb(156, 12,22, 0.712);
+  color: rgb(156, 12,22, 0.712);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#deletebtn:hover{
+  border: 1px solid rgb(202, 5, 18);
+  color: rgb(204, 6, 19);
+}
+
+#addbtn button{
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid rgba(26, 109, 9, 0.712);
+  color: rgba(26, 109, 9, 0.712);
+  border-radius: 10px;
+  cursor: pointer;
+}
+#addbtn button:hover{
+  border:1px solid rgba(26, 109, 9, 0.918);
+  color: rgba(26, 109, 9, 0.925);
+}
+
+#deletebtnn{
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid rgb(156, 12,22, 0.712);
+  color: rgb(156, 12,22, 0.712);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+#deletebtnn:hover{
+  border: 1px solid rgb(202, 5, 18);
+  color: rgb(204, 6, 19);
+}
+
+#update{
+  text-decoration: none;
+  margin-right: 15px;
+}
+#liststudent{
+  text-decoration: none;
+  
+}
+
+#download{
+  padding: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+#actionsquiz{
+  border-top: 1px solid rgba(230, 230, 230, 0.753);
+  padding-top: 15px;
 }

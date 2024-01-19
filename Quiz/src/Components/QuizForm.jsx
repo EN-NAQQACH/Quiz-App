@@ -55,8 +55,7 @@ const QuizForm = ({ quiz }) => {
         // Handle the response from the server (if needed)
         const result = await response.json();
         console.log('Response from server:', result);
-
-        // Navigate to the result page
+        navigate(`/Quiz/${classId}/result/${quizId}/student/${studentId}`);
       } catch (error) {
         console.error('Error submitting quiz responses:', error);
       } finally {
@@ -122,7 +121,7 @@ const QuizForm = ({ quiz }) => {
 
       {currentQuestionIndex === quiz.questions.length - 1 && !submitting && (
         <div className="nxtbtn">
-          <button onClick={handleNextQuestion}><Link to={`/Quiz/${classId}/result/${quizId}/student/${studentId}`}>result</Link></button>
+          <button onClick={handleNextQuestion}>Submit</button>
         </div>
       )}
 

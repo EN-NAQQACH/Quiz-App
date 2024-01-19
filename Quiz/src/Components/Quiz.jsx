@@ -1,10 +1,11 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import '../Styles/Quiz.css';
 
 const NewQuizForm = () => {
   let{classId} = useParams();
   console.log(classId);
+  const navigate = useNavigate();
   const [quiz_name, setquiz_name] = useState('');
   const [duration, setDuration] = useState('');
   const [start_date, setstart_date] = useState('');
@@ -39,7 +40,9 @@ const NewQuizForm = () => {
       });
   
       if (response.ok) {
-        console.log('Quiz successfully created!');
+        
+        alert("Quiz successfully created!")
+        navigate('/Quiz/Add')
       } else{
         const errorMessage = await response.text();
         console.error(`Failed to create quiz. Server returned: ${response.status} - ${errorMessage}`);
@@ -126,10 +129,10 @@ const NewQuizForm = () => {
           </div>
         ))}
         <div className="buttons">
-          <button type="button" onClick={handleAddQuestion}>
+          <button type="button" onClick={handleAddQuestion} className="btn-option">
             Add Question
           </button>
-          <button type="submit">
+          <button type="submit" className="btn-option">
             Add Quiz
           </button>
         </div>

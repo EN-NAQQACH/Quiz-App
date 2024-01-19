@@ -6,8 +6,7 @@ function UserInfo() {
     const [email, setemail] = useState('');
     const [role, setrole] = useState('');
     const [id, setid] = useState('')
-    const [name, setname] = useState('')
-
+    const [full_name, setfullname] = useState('')
     const fetchuser = async () => {
         const res = await fetch('https://quiz-app.eroslabs.live/api/user/info', {
             method: 'GET',
@@ -21,9 +20,37 @@ function UserInfo() {
         setemail(data.email)
         setrole(data.role)
         setid(data.id)
-        setname(data.name)
+        setfullname(data.name)
         console.log(data)
     }
+
+    const handleUpdate = async () => {
+        try {
+          const res = await fetch('https://quiz-app.eroslabs.live/api/user/update', {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + localStorage.getItem('token'),
+            },
+            body: JSON.stringify({
+              username,
+              email,
+              full_name,
+            }),
+          });
+    
+          if (res.ok) {
+            alert('User info updated successfully');
+            fetchuser();
+          } else {
+            console.error('Failed to update user info');
+          }
+        } catch (error) {
+          console.error('Error updating user info:', error);
+        }
+      }
+
+
     useEffect(() => {
         fetchuser();
     }, [])
@@ -38,32 +65,39 @@ function UserInfo() {
                 <input
                     type="text"
                     value={id}
-                    disabled
+                    disabled="true"
                 />
                 <label htmlFor="">name:</label>
                 <input
                     type="text"
-                    value={name}
-                    disabled
+                    value={full_name}
+                    onChange={(e) => setfullname(e.target.value)}
+                    
                 />
                 <label htmlFor="">username:</label>
                 <input
                     type="text"
                     value={username}
-                    disabled
+                    onChange={(e) => setusername(e.target.value)}
+
+                    
                 />
                 <label htmlFor="">email:</label>
                 <input
                     type="text"
                     value={email}
-                    disabled
+                    onChange={(e) => setemail(e.target.value)}
+                    
                 />
                 <label htmlFor="">role:</label>
                 <input
                     type="text"
                     value={role}
-                    disabled
+                    onChange={(e) => setrole(e.target.value)}
+                    disabled="true"
+                    
                 />
+                <button type="button" onClick={handleUpdate}>Update</button>
             </form>
         </div>
     )

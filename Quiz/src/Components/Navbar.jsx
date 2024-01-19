@@ -5,7 +5,7 @@ import "../Styles/Nav.css"
 import student from "../assets/book.png"
 /********************************** */
 import { Menu } from 'antd';
-import { HomeOutlined, UserOutlined, InfoCircleOutlined, PlusCircleOutlined, LogoutOutlined} from '@ant-design/icons';
+import { HomeOutlined, UserOutlined, InfoCircleOutlined, PlusCircleOutlined, LogoutOutlined, QuestionCircleOutlined,BookOutlined,SettingOutlined} from '@ant-design/icons';
 import { Button, Layout, theme } from 'antd';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import HomePage from "./HomePage";
@@ -53,11 +53,12 @@ const Navbar = ({ isTeacher }) => {
 
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userRole');
-    navigate('/Login');
+    setTimeout(() => {
+      localStorage.removeItem('token');
+      localStorage.removeItem('userRole');
+      window.location.href = '/Login';
+    }, 1500);
   };
-
 
   /****************************************** */
 
@@ -80,27 +81,27 @@ const Navbar = ({ isTeacher }) => {
   return (
     <Layout>
       <Sider className="aside" collapsed={collapsed} collapsible trigger={null}>
-        <h1 className="logo">logo</h1>
+        <h1 className="logo">Quiz</h1>
         <Menu theme="dark" mode="inline" className="menulist">
           <Menu.Item key="home" icon={<HomeOutlined />}>
             <Link to="/">Home</Link>
           </Menu.Item>
-          <Menu.SubMenu key="class" icon={<HomeOutlined />} title="Class">
+          <Menu.SubMenu key="class" icon={<BookOutlined />} title="Class">
           {isTeacher && (
             <Menu.Item key="class1" icon={<PlusCircleOutlined />}><Link to="/Class/Add">Add a Class</Link></Menu.Item>)}
             {!isTeacher && (
                           <Menu.Item key="class1" icon={<PlusCircleOutlined />}><Link to="/Class/Join">Join a Class</Link></Menu.Item>)}
-            <Menu.Item key="class2" icon={<HomeOutlined />}><Link to="/Classes">Classes</Link></Menu.Item>
+            <Menu.Item key="class2" icon={<BookOutlined />}><Link to="/Classes">Classes</Link></Menu.Item>
           </Menu.SubMenu>
-          <Menu.SubMenu key="quiz" icon={<HomeOutlined />} title="Quiz">
+          <Menu.SubMenu key="quiz" icon={<QuestionCircleOutlined />} title="Quiz">
           {isTeacher && (
               <Menu.Item key="quiz1" icon={<PlusCircleOutlined />}>
                 <Link to="/Quiz/Add">Add a Quiz</Link>
               </Menu.Item>
             )}
-            <Menu.Item key="quiz2" icon={<HomeOutlined />}><Link to="/Quizez">Quizez</Link></Menu.Item>
+            <Menu.Item key="quiz2" icon={<QuestionCircleOutlined />}><Link to="/Quizez">Quizez</Link></Menu.Item>
           </Menu.SubMenu>
-          <Menu.Item key="info" icon={<InfoCircleOutlined />}>
+          <Menu.Item key="info" icon={<SettingOutlined />}>
             <Link to="/info">Info</Link>
           </Menu.Item>
         </Menu>
@@ -123,7 +124,7 @@ const Navbar = ({ isTeacher }) => {
               <p>{role}</p>
             </div>
             <div className="btn-log">
-            <button onClick={handleLogout}><LogoutOutlined/></button>
+            <button onClick={handleLogout} title="Log Out"><LogoutOutlined/></button>
             </div>
           </div>
         </Header>

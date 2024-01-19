@@ -48,12 +48,10 @@ const ScoreForm = () => {
                 <div>
                 <p>each correct answer</p>
                 <p>Total Question</p>
-                <p>Rate</p>
                 </div>
                 <div>
                 <p>1 point</p>
                 <p>{totalquestion}</p>
-                <p>each correct answer</p>
                 </div>
             </div>
             <div className="btn-back">

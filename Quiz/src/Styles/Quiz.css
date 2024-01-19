@@ -6,7 +6,9 @@
     padding: 15px;
     background-color: rgb(235, 235, 235);
   } */
+*{
 
+}
 .formquiz{
     margin: auto;
     margin-top: 50px;
@@ -21,17 +23,25 @@
   }
 .correct{
     display: flex;
+    width: auto;
+   
 }
 .correct input {
-    margin-left: -190px;
+  width: auto;
+  margin-left: 5px;
     margin-top: 2px;
 }
 .btn-option{
     margin-bottom: 20px;
     margin-top: -15px;
+    padding: 5px;
+    width:100%;
+    border: 1px solid transparent;
+    background-color:  #95a8c591;
 }
 .buttons{
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+    gap: 10px;
 }

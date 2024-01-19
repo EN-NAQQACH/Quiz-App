@@ -1,16 +1,16 @@
-*{
+/* *{
     background-color: #f8f8f8;
     font-family: 'Poppins', sans-serif;
 }
 .Login {
     border:1px solid transparent;
     margin-top: 10%;
-    width: 30%;
+    width: 50%;
     margin: auto;
     padding: 50px;
     margin-top: 4%;
     border-radius: 5px;
-    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1)
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
 }
 .Login h2{
     text-align: center;
@@ -71,4 +71,153 @@
 .Login form button:hover{
     background-color:#b8b59f;
     color: #525252;
-}
+} */
+
+
+/* LoginForm.css */
+
+.google-login-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+  }
+  
+  .google-logo {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .google-login-title {
+    margin-top: 10px;
+    color: #333333;
+  }
+  
+  .google-login-form {
+    margin-top: 20px;
+    width: 40%;
+  }
+  .google-login-form input{
+    margin-bottom: 0px;
+    border-radius: 0px;
+    padding: 15px;
+  }
+  .google-login-form input:focus{
+    border-radius: 0px;
+    
+    
+  }
+  
+  .google-login-fieldset {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+  }
+  
+  .fieldset-legend {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555555;
+    margin-bottom: 10px;
+  }
+  
+  .google-login-field {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+ 
+  .placeholder{
+    position: absolute;
+    top: 80%;
+    left: 10px;
+    transform: translateY(-150%);
+    font-size: 12px;
+    color: #88868b;
+    pointer-events: none;
+    transition: 0.4s;
+  }
+
+  .focused .placeholder, input:valid + .placeholder {
+    top: 0;
+    font-size: 15px;
+    color: #88868b;
+    margin-left: 0px;
+  }
+  
+  label {
+    display: block;
+    color: #555555;
+    text-align: left;
+    margin-left: 10px;
+  }
+  
+  input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+  }
+  
+  .google-login-fieldset button {
+    width: 100%;
+    background-color: #203d6bc7;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  #signup:hover{
+    color: white;
+    background-color:#0d3574c7;
+    transition: all 0.4s ease;
+  }
+  
+  .google-forgot-password {
+    margin-top: 16px;
+    color: #555555;
+    cursor: pointer;
+  }
+  
+  .google-login-checkbox {
+    display: flex;
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+
+  .google-login-checkbox input{
+    width: auto;
+  }
+  header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: #9b9b9b2f 1px solid;
+    width: 100%;
+    padding: 10px;
+    font-size: 25px;
+    font-weight: 600;
+    color: rgba(5, 42, 102, 0.78);
+  }
+  header .btn-login-signup{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  header .btn-login-signup button{
+    padding: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 15px;
+    border: 1px solid #203d6bc7;
+    color: #203d6bc7;
+  }
+  header .btn-login-signup button:hover{
+    color: white;
+    background-color:#0d3574c7;
+    transition: all 0.4s ease;
+  }

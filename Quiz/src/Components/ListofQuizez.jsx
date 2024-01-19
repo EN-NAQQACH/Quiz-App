@@ -82,10 +82,12 @@ function ListofQuizez({ isTeacher }) {
                     <p><span>Start Date : </span>{quiz.start_date+" GMT"}</p>
                     <p><span>Duration : </span>{quiz.duration} minutes</p>
                     {isTeacher && (
+                      <div id="actionsquiz">
+                      <Link to={`/Quiz/${classId}/update/${quiz.quiz_id}`} id="update">Update</Link>
+                      <Link to={`/Quiz/${classId}/ListStudents/${quiz.quiz_id}`} id="liststudent">Liste of students</Link>
                       <div>
-                      <Link to={`/Quiz/${classId}/update/${quiz.quiz_id}`}>Update</Link>
-                      <Link to={`/Quiz/${classId}/ListStudents/${quiz.quiz_id}`}>Liste Of students</Link>
-                      <button onClick={() => deleteQuiz(quiz.quiz_id)}>Delete</button>
+                      <button onClick={() => deleteQuiz(quiz.quiz_id)}id="deletebtnn">Delete</button>
+                      </div>
                       </div>
                     )}
                     {!isTeacher && (

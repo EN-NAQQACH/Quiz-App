@@ -181,17 +181,17 @@ const UpdateQuiz = () => {
               </div>
             ))}
 
-            <button type="button" onClick={() => handleAddOption(questionIndex)}>
+            <button type="button" onClick={() => handleAddOption(questionIndex)} className="btn-option">
               Add Option
             </button>
             <br />
           </div>
         ))}
     <div className="buttons">
-        <button type="button" onClick={handleAddQuestion}>
+        <button type="button" onClick={handleAddQuestion} className="btn-option">
           Add Question
         </button>
-        <button type="submit">Save Changes</button>
+        <button type="submit" className="btn-option">Save Changes</button>
         </div>
       </form>
     </div>

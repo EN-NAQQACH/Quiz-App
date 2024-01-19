@@ -11,6 +11,7 @@
     padding: 10px;
     font-size: 20px;
     font-weight: 600;
+    margin-top: 15px;
 }
 
 .ant-layout-sider.ant-layout-sider-dark{
@@ -138,4 +139,7 @@
     background-color: #2a548bd7;
     transition: all 0.3s ease;
     cursor: pointer;
+}
+.option-content{
+    display: flex;
 }
