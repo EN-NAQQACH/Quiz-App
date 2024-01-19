@@ -18,14 +18,14 @@ function HomePage() {
         })
         const data = await res.json()
         setusername(data.username)
-        console.log(data)
     }
     useEffect(() => {
       fetchuser();
       if (!localStorage.getItem('token')) {
-        navigate('/Login');
+        window.location.href = '/Login';
+      return;
       }
-    }, [navigate]);
+    }, []);
 
     return (
         <div className="content">

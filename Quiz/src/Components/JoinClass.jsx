@@ -8,8 +8,6 @@ function JoinClass() {
     e.preventDefault();
 
     const token = localStorage.getItem('token');
-    console.log(token);
-
     const res = await fetch("https://quiz-app.eroslabs.live/api/classes/join", {
       method: 'POST',
       headers: {
@@ -20,7 +18,11 @@ function JoinClass() {
     });
 
     const data = await res.json();
-    console.log(data);
+    if (res.ok) {
+      alert('Successfully joined the class!');
+    } else {
+      alert('Failed to join the class. Please try again.');
+    }
   };
   useEffect(()=>{
     if (!localStorage.getItem('token')) {

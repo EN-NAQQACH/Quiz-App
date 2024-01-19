@@ -16,7 +16,6 @@ function ListofClasses() {
       }
     });
     const data = await response.json();
-    console.log(data);
     const classesArray = data.hasOwnProperty('classes') ? data.classes : [];
     setClasses(classesArray);
 
@@ -31,8 +30,15 @@ function ListofClasses() {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
       })
-      const data = await response.json();
-      console.log(data)
+      if (response.ok) {
+        const data = await response.json();
+        window.alert('Class deleted successfully');
+        fetchClasses();
+      } else {
+        const errorData = await response.json();
+        console.error('Failed to delete class:', errorData);
+        window.alert('Failed to delete class');
+      }
     }catch(e){
       console.log(e)
     };

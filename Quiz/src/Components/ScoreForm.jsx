@@ -21,7 +21,6 @@ const ScoreForm = () => {
         });
 
         const data = await response.json();
-        console.log(data)
         setscore(data.score);
         settotalquestion(data.out_of);
       } catch (error) {

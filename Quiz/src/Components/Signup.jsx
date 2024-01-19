@@ -44,7 +44,6 @@ function Signup() {
             body: JSON.stringify({ username, full_name, email, password })
         })
         const data = await res.json();
-        console.log(data);
         if (res.ok) {
             alert('Signup successful!');
             navigate('/Login');

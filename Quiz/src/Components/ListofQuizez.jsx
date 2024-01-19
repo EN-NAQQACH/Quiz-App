@@ -20,7 +20,6 @@ function ListofQuizez({ isTeacher }) {
       }
     });
     const data = await response.json();
-    console.log(data);
     setQuizzes(data.quizzes); setLoading(false);
 
   }
@@ -38,9 +37,9 @@ function ListofQuizez({ isTeacher }) {
       const data = await response.json()
       if (response.ok) {
         alert(data.message);
-
+        fetchClasses();
       } else {
-        console.error("Failed to delete quiz");
+        alert("Failed to delete quiz");
       }
     } catch (error) {
       console.error("Error deleting quiz:", error);

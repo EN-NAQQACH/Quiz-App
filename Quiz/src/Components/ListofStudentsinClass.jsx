@@ -5,7 +5,6 @@ import '../Styles/App.css';
 function ListofStudentsinClass() {
   let { classId } = useParams();
   const navigate = useNavigate();
-  console.log(classId)
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -27,7 +26,6 @@ function ListofStudentsinClass() {
       });
 
       const data = await res.json();
-      console.log(data);
       const StudentsArray = data.hasOwnProperty('students') ? data.students : [];
       setStudents(StudentsArray);
       setLoading(false);

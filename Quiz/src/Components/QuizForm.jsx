@@ -54,7 +54,7 @@ const QuizForm = ({ quiz }) => {
 
         // Handle the response from the server (if needed)
         const result = await response.json();
-        console.log('Response from server:', result);
+        // console.log('Response from server:', result);
         navigate(`/Quiz/${classId}/result/${quizId}/student/${studentId}`);
       } catch (error) {
         console.error('Error submitting quiz responses:', error);

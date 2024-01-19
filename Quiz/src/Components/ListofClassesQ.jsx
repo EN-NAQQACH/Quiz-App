@@ -14,7 +14,6 @@ function ListofClassesQ() {
       }
     });
     const data = await response.json();
-    console.log(data);
     const classesArray = data.hasOwnProperty('classes') ? data.classes : [];
     setClasses(classesArray);
 

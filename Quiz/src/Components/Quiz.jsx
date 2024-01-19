@@ -4,7 +4,6 @@ import '../Styles/Quiz.css';
 
 const NewQuizForm = () => {
   let{classId} = useParams();
-  console.log(classId);
   const navigate = useNavigate();
   const [quiz_name, setquiz_name] = useState('');
   const [duration, setDuration] = useState('');
@@ -44,8 +43,8 @@ const NewQuizForm = () => {
         alert("Quiz successfully created!")
         navigate('/Quiz/Add')
       } else{
-        const errorMessage = await response.text();
-        console.error(`Failed to create quiz. Server returned: ${response.status} - ${errorMessage}`);
+        const errorMessage = await response.json();
+        alert(errorMessage.error)
       }
     } catch (error) {
       console.error('An error occurred during quiz creation:', error);

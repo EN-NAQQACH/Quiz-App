@@ -24,7 +24,6 @@ const UpdateQuiz = () => {
         });
         const data = await response.json();
         setQuizData(data.quiz);
-        console.log(data.quiz);
       } catch (error) {
         console.error('An error occurred during quiz creation:', error);
       }
@@ -89,8 +88,9 @@ const UpdateQuiz = () => {
             alert('Quiz updated successfully!');
             navigate(`/Quiz/${classId}`);
           } else {
-            const errorMessage = await response.text();
-            console.error(`Failed to update quiz. Server returned: ${response.status} - ${errorMessage}`);
+            const errorMessage = await response.json();
+            alert(errorMessage.error);
+            
           }
         } catch (error) {
           console.error('An error occurred during quiz update:', error);

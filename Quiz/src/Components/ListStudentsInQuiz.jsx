@@ -19,7 +19,6 @@ function ListStudentsinQuiz() {
                 }
             });
             const data = await res.json();
-            console.log(data);
 
             if (res.ok) {
                 setQuizResults(data.results);

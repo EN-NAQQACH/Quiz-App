@@ -21,7 +21,6 @@ function UserInfo() {
         setrole(data.role)
         setid(data.id)
         setfullname(data.name)
-        console.log(data)
     }
 
     const handleUpdate = async () => {
@@ -43,7 +42,7 @@ function UserInfo() {
             alert('User info updated successfully');
             fetchuser();
           } else {
-            console.error('Failed to update user info');
+            alert('Failed to update user info');
           }
         } catch (error) {
           console.error('Error updating user info:', error);

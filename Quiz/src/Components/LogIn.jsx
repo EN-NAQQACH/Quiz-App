@@ -52,7 +52,6 @@ function LogIn({ setIsTeacher }) {
                 },
               });
               const userData = await userInfoRes.json();
-              console.log(userData);
               if (userData.role) {
                 localStorage.setItem('userRole', userData.role);
                 setIsTeacherLocal(userData.role === 'teacher');
@@ -73,7 +72,7 @@ function LogIn({ setIsTeacher }) {
       
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      navigate('/');
+      window.location.href = '/';
     }
   }, []);
 

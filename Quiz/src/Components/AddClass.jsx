@@ -8,8 +8,6 @@ function Class() {
     e.preventDefault();
 
     const token = localStorage.getItem('token');
-    console.log(token);
-
     const res = await fetch("https://quiz-app.eroslabs.live/api/classes/create", {
       method: 'POST',
       headers: {
@@ -20,8 +18,6 @@ function Class() {
     });
 
     const data = await res.json();
-    console.log(data);
-
     if (res.status === 200) {
       alert('Class added successfully');
       setClass('')
