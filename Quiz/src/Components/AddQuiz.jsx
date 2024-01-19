@@ -51,7 +51,7 @@ function AddQuiz() {
             classes.map((classInfo) => (
               <tr key={classInfo.classObject._id}>
                 <td ><Link to="#">{classInfo.classObject.class_name}</Link></td>
-                <td><div id="actions"><Link to={`/Quiz/Add/${classInfo.classObject._id}`}><button>Add Quiz</button></Link><Link to={`/Classes/${classInfo.classObject._id}/students`}><button>Update</button></Link></div></td>
+                <td><Link to={`/Quiz/Add/${classInfo.classObject._id}`} id="addbtn"><button>Add Quiz</button></Link></td>
               </tr>
             ))
           ) : (
