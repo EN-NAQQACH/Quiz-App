@@ -7,13 +7,13 @@ The project is structured as follows:
 
 /src: Contains the source code of the frontend.
 # Features
-User Authentication: Secure login and registration functionality.
+1. **User Authentication: Secure login and registration functionality.**
 
-Class Management: View and manage classes.
+2. **Class Management: View and manage classes.**
 
-Quiz Creation: Create and manage quizzes for each class.
+3. **Quiz Creation: Create and manage quizzes for each class.**
 
-Quiz Participation: Allow students to participate in quizzes.
+4. **Quiz Participation: Allow students to participate in quizzes.**
 # Usage
 
 Clone the Repository
@@ -32,3 +32,7 @@ Clone the Repository
 4. **run the project**
     ```bash
     npm run dev
+# Collaborators
+@EN-NAQQACH
+
+@YassineKADER
