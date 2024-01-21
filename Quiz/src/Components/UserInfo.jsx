@@ -57,7 +57,7 @@ function UserInfo() {
 
 
     return (
-        <div className="content">
+        <div id="content">
             <h2>User Info</h2>
             <form className="form-info">
                 <label htmlFor="">id:</label>

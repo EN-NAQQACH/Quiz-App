@@ -27,7 +27,7 @@ function Class() {
   };
   useEffect(()=>{
     if (!localStorage.getItem('token')) {
-      navigate('/Login');
+      navigate('/');
     }
   },[navigate])
 

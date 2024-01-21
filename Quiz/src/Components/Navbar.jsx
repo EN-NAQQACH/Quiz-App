@@ -56,7 +56,7 @@ const Navbar = ({ isTeacher }) => {
     setTimeout(() => {
       localStorage.removeItem('token');
       localStorage.removeItem('userRole');
-      window.location.href = '/';
+      navigate('/')
     }, 1500);
   };
 
@@ -66,11 +66,14 @@ const Navbar = ({ isTeacher }) => {
   const { token: { colorBgContainer },
   } = theme.useToken();
   useEffect(() => {
-    const rootElement = document.getElementById("root");
+    const Element = document.getElementById("header");
+    const Element2 = document.getElementById("content");
     const userrole = document.getElementById("userrole");
-    if (rootElement) {
-      rootElement.style.left = collapsed ? "80px" : "200px";
-      rootElement.style.width = collapsed ? "calc(100% - 80px)" : "calc(100% - 200px)";
+    if (Element) {
+      Element.style.left = collapsed ? "80px" : "200px";
+      Element.style.width = collapsed ? "calc(100%)" : "calc(100%)"
+      Element2.style.left = collapsed ? "80px" : "200px";
+      Element2.style.width = collapsed ? "calc(100% - 80px)" : "calc(100% - 200px)"
       userrole.style.left = collapsed ? "calc(100% - 260px)":"calc(100% - 380px)"
     }
   }, [collapsed]);
@@ -84,7 +87,7 @@ const Navbar = ({ isTeacher }) => {
         <h1 className="logo">Quiz</h1>
         <Menu theme="dark" mode="inline" className="menulist">
           <Menu.Item key="home" icon={<HomeOutlined />}>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </Menu.Item>
           <Menu.SubMenu key="class" icon={<BookOutlined />} title="Class">
           {isTeacher && (
@@ -107,7 +110,7 @@ const Navbar = ({ isTeacher }) => {
         </Menu>
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }} className="header" >
+        <Header style={{ padding: 0, background: colorBgContainer }} id="header" >
           <Button
             className="toggle" r
             onClick={() => setCollapsed(!collapsed)}

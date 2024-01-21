@@ -20,13 +20,13 @@ function ListofClassesQ() {
   }
   useEffect(() => {
       if (!localStorage.getItem('token')) {
-        navigate('/Login');
+        navigate('/');
       }
     fetchClasses();
   }, [])
 
   return (
-    <div className="content">
+    <div id="content">
       <h2>List of Classes</h2>
       <label htmlFor="">* Click on Quiz to display all Quizez in that class</label>
       <table className="class-table">

@@ -28,13 +28,16 @@ const ScoreForm = () => {
       }
     };
       if (!localStorage.getItem('token')) {
-        navigate('/Login');
+        navigate('/');
       }
 
     fetchScoreFromQuiz();
   }, []);
 
   return (
+    <div id="content">
+
+    
     <div className="result-page">
       <div className="info-score">
             <div className="title">
@@ -58,6 +61,7 @@ const ScoreForm = () => {
             </div>
       </div>
       
+    </div>
     </div>
   );
 };

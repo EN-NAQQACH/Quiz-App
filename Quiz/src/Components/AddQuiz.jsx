@@ -28,13 +28,13 @@ function AddQuiz() {
 
   useEffect(() => {
       if (!localStorage.getItem('token')) {
-        navigate('/Login');
+        navigate('/');
       }
     fetchClasses();
   }, [navigate])
 
   return (
-    <div className="content">
+    <div id="content">
       <h2>List of Classes</h2>
       <table className="class-table">
         <thead>

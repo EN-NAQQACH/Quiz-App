@@ -98,7 +98,7 @@ const UpdateQuiz = () => {
       };
   
   return (
-    <div className="content">
+    <div id="content">
       <h2>Edit Quiz</h2>
       <form className="formquiz" onSubmit={handleSubmit}>
         <label>

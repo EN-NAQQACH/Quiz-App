@@ -22,13 +22,13 @@ function HomePage() {
     useEffect(() => {
       fetchuser();
       if (!localStorage.getItem('token')) {
-        window.location.href = '/Login';
+        navigate('/');
       return;
       }
     }, []);
 
     return (
-        <div className="content">
+        <div id="content">
           <div className="role">
           <h1>Hi {username} !</h1>
           <img src={photoo} alt="" />

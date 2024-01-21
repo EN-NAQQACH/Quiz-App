@@ -81,7 +81,7 @@ const QuizForm = ({ quiz }) => {
   useEffect(() => {
 
       if (!localStorage.getItem('token')) {
-        navigate('/Login');
+        navigate('/');
       }
     fetchUser();
   }, []);

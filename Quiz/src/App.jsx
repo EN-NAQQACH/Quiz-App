@@ -41,7 +41,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<Login setIsTeacher={setIsTeacher} />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/info" element={<UserInfo />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/Login" element={<Login setIsTeacher={setIsTeacher} />} />
@@ -70,7 +71,7 @@ function App() {
         <Route path="/Quiz/:classId/ListStudents/:quizId" element={<ListStudentsinQuiz />} /> */}
         <Route path="*" element={<Page404 />} />
       </Routes>
-      {location.pathname !== '/Signup' && location.pathname !== '/Login' && <Navbar isTeacher={isTeacher} />}
+      {location.pathname !== '/Signup' && location.pathname !== '/Login' && location.pathname !== '/' && <Navbar isTeacher={isTeacher} />}
     </>
   );
 }

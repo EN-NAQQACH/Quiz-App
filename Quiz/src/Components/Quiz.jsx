@@ -52,7 +52,7 @@ const NewQuizForm = () => {
   };
 
   return (
-    <div className="content">
+    <div id="content">
       <h2>Create a New Quiz</h2>
       <form className="formquiz" onSubmit={handleSubmitQuiz}>
         <label>

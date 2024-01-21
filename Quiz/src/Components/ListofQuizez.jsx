@@ -51,7 +51,7 @@ function ListofQuizez({ isTeacher }) {
 
   useEffect(() => {
       if (!localStorage.getItem('token')) {
-        navigate('/Login');
+        navigate('/');
       }
     fetchClasses();
   }, [isTeacher])
@@ -63,7 +63,7 @@ function ListofQuizez({ isTeacher }) {
   };
 
   return (
-    <div className="quizzes-container">
+    <div id="content">
       <h1>Quizzes</h1>
       <ul className="quizzes-list">
         {loading ? (

@@ -47,13 +47,13 @@ function ListofClasses() {
 
   useEffect(() => {
       if (!localStorage.getItem('token')) {
-        navigate('/Login');
+        navigate('/');
       }
     fetchClasses();
   }, [])
 
   return (
-    <div className="content">
+    <div id="content">
       <h2>List of Classes</h2>
       {role === "teacher" &&
       <label htmlFor="" id="notice">* Click on Class to display all students in that class</label>}

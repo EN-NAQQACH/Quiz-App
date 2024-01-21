@@ -32,7 +32,7 @@ function ListStudentsinQuiz() {
 
      
             if (!localStorage.getItem('token')) {
-              navigate('/Login');
+              navigate('/');
             }
         fetchStudents();
     }, []);
@@ -57,7 +57,7 @@ function ListStudentsinQuiz() {
 
 
     return (
-        <div className="content">
+        <div id="content">
             <h2>Quiz Results</h2>
             <button onClick={downloadCSV} id="download">Download CSV</button>
             <table className="class-table">

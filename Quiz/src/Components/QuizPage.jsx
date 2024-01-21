@@ -28,17 +28,19 @@ const QuizPage = () => {
 
   useEffect(() => {
       if (!localStorage.getItem('token')) {
-        navigate('/Login');
+        navigate('/');
       }
     fetchQuiz();
   }, []);
   return (
+    <div id="content">
     <div className="Quiz-Page">
       {quiz ? (
         <QuizForm quiz={quiz} />
       ) : (
         <p>Loading...</p>
       )}
+    </div>
     </div>
   );
 };

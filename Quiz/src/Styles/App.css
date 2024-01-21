@@ -65,10 +65,10 @@ form input{
   margin-top: 5px;
   box-shadow: 0 2px 2px rgba(206, 206, 206, 0.1);
 }
-.content h2{
+#content h2{
   margin-bottom: 20px;
 }
-.content label{
+#content label{
   color: #6b6b6b;
   font-size: 12px;
 }

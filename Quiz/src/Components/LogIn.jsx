@@ -64,7 +64,7 @@ function LogIn({ setIsTeacher }) {
       
           fetchUserInfo(); 
           alert('Login successful!');
-          window.location.href = '/';
+          navigate('/home');
         } else {
           alert('Login failed');
         }
@@ -72,7 +72,7 @@ function LogIn({ setIsTeacher }) {
       
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      window.location.href = '/';
+      navigate('/home');
     }
   }, []);
 

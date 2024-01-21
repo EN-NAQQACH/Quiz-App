@@ -26,11 +26,11 @@ function JoinClass() {
   };
   useEffect(()=>{
     if (!localStorage.getItem('token')) {
-      navigate('/Login');
+      navigate('/');
     }
   },[navigate])
   return (
-    <div className="Content">
+    <div id="content">
       <h2> Join to a Class</h2>
       <form onSubmit={handleSubmit}>
         <input

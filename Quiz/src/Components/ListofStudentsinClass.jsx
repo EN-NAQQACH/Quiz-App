@@ -10,7 +10,7 @@ function ListofStudentsinClass() {
 
   useEffect(() => {
       if (!localStorage.getItem('token')) {
-        navigate('/Login');
+        navigate('/');
       }
     fetchStudents();
   }, []);
@@ -58,7 +58,7 @@ function ListofStudentsinClass() {
   }
 
   return (
-    <div className="content">
+    <div id="content">
       <h2>Students Information</h2>
       {/* {loading ? (
         <p>Loading...</p>
